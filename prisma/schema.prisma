@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ─── سامانه نوبت‌دهی ───────────────────────────────────────────
+model Appointment {
+  id          String   @id @default(cuid())
+  trackingCode String  @unique
+  fullName    String
+  phone       String
+  serviceId   String
+  serviceName String
+  date        String   // YYYY-MM-DD (میلادی - ذخیره فنی)
+  timeSlot    String   // HH:mm
+  notes       String?
+  status      String   @default("PENDING") // PENDING | CONFIRMED | CANCELLED | DONE
+  smsStatus   String   @default("PENDING") // SENT | FAILED | MOCK | PENDING
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  payments    Payment[]
+}
+
+// ─── پرداخت هزینه ویزیت ────────────────────────────────────────
+model Payment {
+  id          String   @id @default(cuid())
+  trackingCode String  @unique
+  fullName    String
+  phone       String
+  description String
+  amount      Int      // تومان
+  status      String   @default("PENDING") // PENDING | PAID | FAILED
+  gateway     String   @default("zarinpal-sandbox")
+  authority   String?  // شناسه زرین‌پال
+  refId       String?  // شماره پیگیری
+  cardPan     String?
+  appointmentId String?
+  appointment Appointment? @relation(fields: [appointmentId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ─── لاگ پیامک‌ها ──────────────────────────────────────────────
+model SmsLog {
+  id        String   @id @default(cuid())
+  phone     String
+  message   String
+  type      String   // BOOKING_CONFIRM | BOOKING_REMINDER | PAYMENT_RECEIPT | GENERAL
+  provider  String   // kavenegar | smsir | mock
+  status    String   @default("PENDING") // SENT | FAILED | MOCK
+  providerRef String?
+  createdAt DateTime @default(now())
+}
+
+// ─── لاگ چت‌بات ────────────────────────────────────────────────
+model ChatMessage {
+  id        String   @id @default(cuid())
+  sessionId String
+  role      String   // user | assistant
+  content   String
+  createdAt DateTime @default(now())
+}
