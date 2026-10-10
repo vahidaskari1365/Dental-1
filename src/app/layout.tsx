@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     description: "رزرو آنلاین نوبت دندانپزشکی در تهران با مشاوره هوشمند ۲۴ ساعته",
     images: ["/images/og-clinic.png"],
   },
-  icons: { icon: "/logo.svg", apple: "/logo.svg" },
+  icons: { icon: "/logo.svg?v=5", apple: "/logo.svg?v=5" },
 };
 
 export const viewport: Viewport = {
