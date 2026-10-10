@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { Header } from "@/components/site/header";
 import { Hero, StatsBar } from "@/components/site/hero";
+import { MarqueeStrip } from "@/components/site/marquee-strip";
 import { Services } from "@/components/site/services";
 import { WhyUs } from "@/components/site/why-us";
 import { Doctors } from "@/components/site/doctors";
@@ -19,6 +20,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <StatsBar />
+        <MarqueeStrip />
         <Services />
         <WhyUs />
         <Doctors />

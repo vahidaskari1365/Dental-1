@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import {
   motion,
-  useInView,
   useScroll,
   useTransform,
   useMotionValue,
@@ -22,6 +21,9 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
+import { BorderBeam } from "@/components/magicui/border-beam";
+import { NumberTicker } from "@/components/magicui/number-ticker";
 import { STATS } from "@/lib/clinic";
 import { toFaDigits } from "@/lib/utils-fa";
 
@@ -128,10 +130,12 @@ export function Hero() {
               initial={reduce ? false : { opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: EASE_CINEMA, delay: 0.15 }}
-              className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-[13px] font-semibold text-primary mb-6"
+              className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-[13px] mb-6"
             >
-              <Sparkles className="w-4 h-4" />
-              بیش از {toFaDigits("12500")} لبخند سالم در {toFaDigits(15)} سال
+              <Sparkles className="w-4 h-4 text-primary shrink-0" />
+              <AnimatedShinyText className="font-semibold text-teal-deep via-brand-green">
+                بیش از {toFaDigits("12500")} لبخند سالم در {toFaDigits(15)} سال
+              </AnimatedShinyText>
             </motion.div>
 
             <motion.h1
@@ -292,8 +296,9 @@ export function Hero() {
               <motion.div
                 animate={reduce ? undefined : { y: [0, 8, 0] }}
                 transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="glass-dark rounded-2xl px-4 py-3 shadow-soft"
+                className="relative overflow-hidden glass-dark rounded-2xl px-4 py-3 shadow-soft"
               >
+                <BorderBeam size={44} duration={5.5} colorFrom="#16C784" colorTo="#86EFAC" borderWidth={1.5} />
                 <p className="text-[11.5px] text-white/75">نزدیک‌ترین نوبت خالی</p>
                 <p className="font-extrabold text-white mt-0.5 text-[15px]">امروز — ساعت {toFaDigits("16:30")}</p>
               </motion.div>
@@ -355,7 +360,7 @@ export function StatsBar() {
               className="text-center lg:border-s lg:border-white/12 first:border-s-0"
             >
               <p className="font-extrabold text-3xl sm:text-[2.6rem] text-white" dir="ltr">
-                <AnimatedNumber target={s.value} />
+                <NumberTicker value={s.value} delay={0.15 + i * 0.08} className="text-white" />
                 {s.suffix}
               </p>
               <p className="mt-1.5 text-[13px] font-medium text-emerald-100/70">{s.label}</p>
@@ -364,34 +369,6 @@ export function StatsBar() {
         </div>
       </div>
     </section>
-  );
-}
-
-function AnimatedNumber({ target }: { target: number }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  const [n, setN] = useState(0);
-  const reduce = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  useEffect(() => {
-    if (!inView) return;
-    const dur = reduce ? 1 : 1600;
-    const start = performance.now();
-    let raf: number;
-    const tick = (t: number) => {
-      const p = Math.min((t - start) / dur, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setN(Math.round(target * eased));
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, target, reduce]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {toFaDigits(n.toLocaleString("en-US"))}
-    </span>
   );
 }
 

@@ -3,12 +3,21 @@
 import { motion } from "framer-motion";
 import { WHY_US, CLINIC } from "@/lib/clinic";
 import { DynamicIcon } from "./icon";
+import { DotPattern } from "@/components/magicui/dot-pattern";
 import { Phone } from "lucide-react";
 
 export function WhyUs() {
   return (
     <section className="relative py-24 overflow-hidden" aria-label="چرا مهرآوا">
       <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-mint-soft via-secondary/40 to-transparent -z-10" />
+      {/* الگوی نقطه‌ای magicui — هاله محو به سمت ستون معرفی (راست در RTL) */}
+      <DotPattern
+        aria-hidden
+        width={20}
+        height={20}
+        cr={1.2}
+        className="-z-10 text-primary/25 [mask-image:radial-gradient(520px_circle_at_85%_18%,white,transparent)]"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 items-start">
           {/* ستون معرفی */}
