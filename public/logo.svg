@@ -1,26 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="mBadge" x1="8" y1="3" x2="56" y2="61" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0F9D68"/>
-      <stop offset="0.52" stop-color="#006241"/>
+    <linearGradient id="mTooth" x1="19" y1="9" x2="47" y2="47" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#009E66"/>
+      <stop offset="0.5" stop-color="#00754A"/>
       <stop offset="1" stop-color="#0B3D2C"/>
     </linearGradient>
-    <linearGradient id="mSheen" x1="32" y1="1.5" x2="32" y2="34" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFFFFF" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    <linearGradient id="mSmile" x1="12" y1="44" x2="52" y2="57" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#16C784"/>
+      <stop offset="1" stop-color="#00A868"/>
     </linearGradient>
   </defs>
-  <!-- نشان سکویرل برند — گرادیان سبز مهرآوا -->
-  <rect x="1.5" y="1.5" width="61" height="61" rx="19" fill="url(#mBadge)"/>
-  <!-- درخشش شیشه‌ای نیمه بالایی -->
-  <path d="M1.5 23 C1.5 11 11 1.5 23 1.5 L41 1.5 C53 1.5 62.5 11 62.5 23 L62.5 25.5 C44 33 20 33 1.5 25.5 Z" fill="url(#mSheen)"/>
-  <!-- خط داخلی ظریف برای عمق -->
-  <rect x="2.75" y="2.75" width="58.5" height="58.5" rx="17.75" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="1.5"/>
-  <!-- دندان سفید مرکزی -->
-  <g transform="translate(32 33) scale(0.58) translate(-34 -32)">
-    <path d="M32 6 C20 6 13 14.5 13 26 C13 34.5 16.2 40.8 18.4 49 C19.8 54.2 21.4 58 24.6 58 C27.6 58 28.4 52.2 30 46.4 C30.9 43.3 32.6 41.2 34 41.2 C35.4 41.2 37.1 43.3 38 46.4 C39.6 52.2 40.4 58 43.4 58 C46.6 58 48.2 54.2 49.6 49 C51.8 40.8 55 34.5 55 26 C55 14.5 44 6 32 6 Z" fill="#FFFFFF"/>
-    <path d="M24.5 17.5 C21.5 19.5 20 22.8 20.2 26.6 C20.3 27.9 21.3 28.8 22.5 28.8 C23.6 28.8 24.7 27.9 24.7 26.6 C24.9 24.4 25.8 22.6 27.4 21.4 C28.4 20.6 28.7 19.1 27.9 18 C27.1 16.9 25.6 16.7 24.5 17.5 Z" fill="#D7ECDD" opacity="0.75"/>
+  <!-- درخشش مهر — ستاره چهارپر -->
+  <path d="M50 7.2 C50.5 10.3 51.7 11.5 54.8 12 C51.7 12.5 50.5 13.7 50 16.8 C49.5 13.7 48.3 12.5 45.2 12 C48.3 11.5 49.5 10.3 50 7.2 Z" fill="#4ADE80"/>
+  <!-- دانه نور مکمل -->
+  <circle cx="13.5" cy="13" r="2.8" fill="#BBF7D0"/>
+  <!-- دندان مرکزی — گرادیان برند -->
+  <g transform="translate(32 27.5) scale(0.66) translate(-34 -32)">
+    <path d="M32 6 C20 6 13 14.5 13 26 C13 34.5 16.2 40.8 18.4 49 C19.8 54.2 21.4 58 24.6 58 C27.6 58 28.4 52.2 30 46.4 C30.9 43.3 32.6 41.2 34 41.2 C35.4 41.2 37.1 43.3 38 46.4 C39.6 52.2 40.4 58 43.4 58 C46.6 58 48.2 54.2 49.6 49 C51.8 40.8 55 34.5 55 26 C55 14.5 44 6 32 6 Z" fill="url(#mTooth)"/>
+    <path d="M24.5 17.5 C21.5 19.5 20 22.8 20.2 26.6 C20.3 27.9 21.3 28.8 22.5 28.8 C23.6 28.8 24.7 27.9 24.7 26.6 C24.9 24.4 25.8 22.6 27.4 21.4 C28.4 20.6 28.7 19.1 27.9 18 C27.1 16.9 25.6 16.7 24.5 17.5 Z" fill="#ECFDF5" opacity="0.55"/>
   </g>
-  <!-- ستاره درخشش نعنایی -->
-  <path d="M47.5 8.5 C47.9 11 48.9 12.1 51.5 12.5 C48.9 12.9 47.9 14 47.5 16.5 C47.1 14 46.1 12.9 43.5 12.5 C46.1 12.1 47.1 11 47.5 8.5 Z" fill="#86EFAC"/>
+  <!-- قوس لبخند — در آغوش گرفتن لبخند -->
+  <path d="M12.5 44 C19.5 56.5 44.5 56.5 51.5 44" stroke="url(#mSmile)" stroke-width="7.5" stroke-linecap="round" fill="none"/>
 </svg>

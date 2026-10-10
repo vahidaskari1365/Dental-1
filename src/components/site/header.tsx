@@ -41,7 +41,7 @@ export function Header() {
         <div className="flex items-center justify-between gap-4">
           {/* لوگو */}
           <a href="#home" className="flex items-center gap-3 group" aria-label={CLINIC.name}>
-            <span className="relative w-11 h-11 drop-shadow-[0_6px_14px_rgba(0,98,65,0.38)] group-hover:scale-105 group-hover:-rotate-3 transition-transform duration-300 ease-cinematic">
+            <span className="relative w-11 h-11 drop-shadow-[0_4px_10px_rgba(0,98,65,0.28)] group-hover:scale-105 group-hover:rotate-3 transition-transform duration-300 ease-cinematic">
               <Image src="/logo.svg" alt="لوگوی کلینیک دندانپزشکی مهرآوا" width={44} height={44} priority />
             </span>
             <span className="leading-tight">
