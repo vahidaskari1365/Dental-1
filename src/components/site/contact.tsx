@@ -120,8 +120,8 @@ export function Contact() {
                 <rect x="340" y="160" width="90" height="60" rx="6" fill="#D9EEE5" />
                 <rect x="180" y="300" width="60" height="70" rx="6" fill="#D9EEE5" />
                 <rect x="380" y="310" width="80" height="55" rx="6" fill="#D9EEE5" />
-                <circle cx="320" cy="255" r="60" fill="#14B8A6" opacity="0.12" />
-                <circle cx="320" cy="255" r="34" fill="#14B8A6" opacity="0.18" />
+                <circle cx="320" cy="255" r="60" fill="#00754a" opacity="0.12" />
+                <circle cx="320" cy="255" r="34" fill="#00754a" opacity="0.18" />
               </svg>
               {/* پین */}
               <motion.div

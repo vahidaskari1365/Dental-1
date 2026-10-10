@@ -39,6 +39,9 @@
   --color-card: var(--card);
   --color-teal-deep: var(--teal-deep);
   --color-mint-soft: var(--mint-soft);
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-brand-green: var(--brand-green);
   --radius-sm: calc(var(--radius) - 6px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -48,6 +51,7 @@
   --animate-float-slow: float 10s ease-in-out infinite;
   --animate-shimmer: shimmer 2.6s linear infinite;
   --animate-pulse-ring: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-kenburns: kenburns 26s ease-in-out infinite alternate;
 
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
@@ -58,85 +62,97 @@
     100% { background-position: 600px 0; }
   }
   @keyframes pulse-ring {
-    0% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.35); }
-    70% { box-shadow: 0 0 0 16px rgba(20, 184, 166, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(0, 117, 74, 0.35); }
+    70% { box-shadow: 0 0 0 16px rgba(0, 117, 74, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 117, 74, 0); }
+  }
+  /* حرکت سینمایی آرام بک‌گراند هیرو — فقط transform */
+  @keyframes kenburns {
+    0% { transform: scale(1.03) translateY(0); }
+    100% { transform: scale(1.12) translateY(-1.5%); }
   }
 }
 
 :root {
   --radius: 1rem;
-  --background: #fafdfc;
-  --foreground: #0b2b26;
+  /* پالت سبز-سفید متعادل: بوم سفید غالب، سبز به‌عنوان هویت */
+  --background: #fcfdfc;
+  --foreground: #10231a;
   --card: #ffffff;
-  --card-foreground: #0b2b26;
+  --card-foreground: #10231a;
   --popover: #ffffff;
-  --popover-foreground: #0b2b26;
-  --primary: #0f766e;
-  --primary-foreground: #f0fdf9;
-  --secondary: #f0fdfa;
-  --secondary-foreground: #115e59;
-  --muted: #f2f7f6;
-  --muted-foreground: #55716c;
-  --accent: #ccfbf1;
-  --accent-foreground: #115e59;
+  --popover-foreground: #10231a;
+  --primary: #006241;
+  --primary-foreground: #f0fdf5;
+  --secondary: #ecf7f0;
+  --secondary-foreground: #14532d;
+  --muted: #f2f7f3;
+  --muted-foreground: #5b7263;
+  --accent: #d7ecdd;
+  --accent-foreground: #14532d;
   --destructive: #dc2626;
   --destructive-foreground: #fef2f2;
-  --border: #d9eae6;
-  --input: #d9eae6;
-  --ring: #14b8a6;
-  --chart-1: #0f766e;
-  --chart-2: #14b8a6;
-  --chart-3: #5eead4;
-  --chart-4: #99f6e4;
-  --chart-5: #ccfbf1;
-  --sidebar: #f0fdfa;
-  --sidebar-foreground: #0b2b26;
-  --sidebar-primary: #0f766e;
-  --sidebar-primary-foreground: #f0fdf9;
-  --sidebar-accent: #ccfbf1;
-  --sidebar-accent-foreground: #115e59;
-  --sidebar-border: #d9eae6;
-  --sidebar-ring: #14b8a6;
-  --teal-deep: #0a3f3a;
-  --mint-soft: #eefaf6;
+  --border: #dcebe0;
+  --input: #d8e9dd;
+  --ring: #00754a;
+  --chart-1: #006241;
+  --chart-2: #16a34a;
+  --chart-3: #4ade80;
+  --chart-4: #bbf7d0;
+  --chart-5: #dcfce7;
+  --sidebar: #ecf7f0;
+  --sidebar-foreground: #10231a;
+  --sidebar-primary: #006241;
+  --sidebar-primary-foreground: #f0fdf5;
+  --sidebar-accent: #d7ecdd;
+  --sidebar-accent-foreground: #14532d;
+  --sidebar-border: #dcebe0;
+  --sidebar-ring: #00754a;
+  --teal-deep: #0b3d2c;
+  --mint-soft: #f0f8f2;
+  --forest: #1e3932;
+  --forest-deep: #122720;
+  --brand-green: #00754a;
 }
 
 .dark {
-  --background: #071614;
-  --foreground: #e6f7f3;
-  --card: #0c211e;
-  --card-foreground: #e6f7f3;
-  --popover: #0c211e;
-  --popover-foreground: #e6f7f3;
-  --primary: #2dd4bf;
-  --primary-foreground: #04211d;
-  --secondary: #0f2a26;
-  --secondary-foreground: #99f6e4;
-  --muted: #0f2a26;
-  --muted-foreground: #7da39c;
-  --accent: #11453e;
-  --accent-foreground: #99f6e4;
+  --background: #07150f;
+  --foreground: #e8f6ee;
+  --card: #0c2118;
+  --card-foreground: #e8f6ee;
+  --popover: #0c2118;
+  --popover-foreground: #e8f6ee;
+  --primary: #4ade80;
+  --primary-foreground: #052e16;
+  --secondary: #0f2a1d;
+  --secondary-foreground: #bbf7d0;
+  --muted: #0f2a1d;
+  --muted-foreground: #86a795;
+  --accent: #11452e;
+  --accent-foreground: #bbf7d0;
   --destructive: #ef4444;
   --destructive-foreground: #fef2f2;
-  --border: #17423b;
-  --input: #17423b;
-  --ring: #2dd4bf;
-  --chart-1: #2dd4bf;
-  --chart-2: #5eead4;
-  --chart-3: #99f6e4;
-  --chart-4: #14b8a6;
-  --chart-5: #0f766e;
-  --sidebar: #0c211e;
-  --sidebar-foreground: #e6f7f3;
-  --sidebar-primary: #2dd4bf;
-  --sidebar-primary-foreground: #04211d;
-  --sidebar-accent: #11453e;
-  --sidebar-accent-foreground: #99f6e4;
-  --sidebar-border: #17423b;
-  --sidebar-ring: #2dd4bf;
-  --teal-deep: #99f6e4;
-  --mint-soft: #0c211e;
+  --border: #174234;
+  --input: #174234;
+  --ring: #4ade80;
+  --chart-1: #4ade80;
+  --chart-2: #22c55e;
+  --chart-3: #86efac;
+  --chart-4: #16a34a;
+  --chart-5: #14532d;
+  --sidebar: #0c2118;
+  --sidebar-foreground: #e8f6ee;
+  --sidebar-primary: #4ade80;
+  --sidebar-primary-foreground: #052e16;
+  --sidebar-accent: #11452e;
+  --sidebar-accent-foreground: #bbf7d0;
+  --sidebar-border: #174234;
+  --sidebar-ring: #4ade80;
+  --teal-deep: #bbf7d0;
+  --mint-soft: #0c2118;
+  --forest: #0f2a1d;
+  --forest-deep: #07150f;
+  --brand-green: #22c55e;
 }
 
 @layer base {
@@ -153,28 +169,28 @@
     -webkit-font-smoothing: antialiased;
   }
   ::selection {
-    background: #99f6e4;
-    color: #0b2b26;
+    background: #d7ecdd;
+    color: #14532d;
   }
 }
 
 @layer utilities {
-  /* سایه‌های محیطی نرم — Soft Structuralism */
+  /* سایه‌های محیطی نرم — Soft Structuralism با ته‌رنگ سبز */
   .shadow-soft {
     box-shadow:
-      0 1px 2px rgba(11, 43, 38, 0.04),
-      0 8px 24px -8px rgba(11, 43, 38, 0.08),
-      0 24px 48px -16px rgba(15, 118, 110, 0.1);
+      0 1px 2px rgba(16, 35, 26, 0.04),
+      0 8px 24px -8px rgba(16, 35, 26, 0.08),
+      0 24px 48px -16px rgba(0, 98, 65, 0.12);
   }
   .shadow-softer {
     box-shadow:
-      0 1px 2px rgba(11, 43, 38, 0.03),
-      0 12px 32px -12px rgba(15, 118, 110, 0.12);
+      0 1px 2px rgba(16, 35, 26, 0.03),
+      0 12px 32px -12px rgba(0, 98, 65, 0.14);
   }
   .shadow-lift {
     box-shadow:
-      0 2px 4px rgba(11, 43, 38, 0.05),
-      0 16px 40px -12px rgba(15, 118, 110, 0.18);
+      0 2px 4px rgba(16, 35, 26, 0.05),
+      0 16px 40px -12px rgba(0, 98, 65, 0.2);
   }
   /* شیشه مایع — Liquid Glass با انکسار لبه */
   .glass {
@@ -184,10 +200,10 @@
     border: 1px solid rgba(255, 255, 255, 0.55);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.35),
-      0 8px 32px -12px rgba(11, 43, 38, 0.14);
+      0 8px 32px -12px rgba(16, 35, 26, 0.14);
   }
   .glass-dark {
-    background: rgba(10, 63, 58, 0.55);
+    background: rgba(18, 39, 32, 0.55);
     backdrop-filter: blur(20px) saturate(1.3);
     -webkit-backdrop-filter: blur(20px) saturate(1.3);
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -214,11 +230,11 @@
     background: transparent;
   }
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: #99d5cc;
+    background: #a7d7b8;
     border-radius: 999px;
   }
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background: #14b8a6;
+    background: #00754a;
   }
   /* دکمه‌های لمسی - tactile feedback */
   .btn-tactile {
@@ -226,6 +242,10 @@
   }
   .btn-tactile:active {
     transform: scale(0.97) translateY(1px);
+  }
+  /* ورودی سینمایی — منحنی اعتماد‌نفس */
+  .ease-cinematic {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
 

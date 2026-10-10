@@ -11,23 +11,26 @@ interface RevealProps {
   once?: boolean;
 }
 
-/** نمایان‌سازی نرم هنگام اسکرول — فیزیک فنری ملایم */
+/* منحنی سینمایی — ورود مطمئن بدون بازگشت */
+const EASE_CINEMA = [0.16, 1, 0.3, 1] as const;
+
+/** نمایان‌سازی سینمایی هنگام اسکرول — محو شدن بلور + جابه‌جایی، منحنی اعتماد‌نفس */
 export function Reveal({ children, delay = 0, y = 28, className, once = true }: RevealProps) {
   const reduce = useReducedMotion();
   return (
     <motion.div
       className={className}
-      initial={reduce ? false : { opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduce ? false : { opacity: 0, y, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once, margin: "-80px" }}
-      transition={{ type: "spring", stiffness: 90, damping: 20, delay }}
+      transition={{ duration: 0.8, ease: EASE_CINEMA, delay }}
     >
       {children}
     </motion.div>
   );
 }
 
-/** ظهور پلکانی با تأخیر متغیر — برای گرید‌ها */
+/** ظهور پلکانی سینمایی با تأخیر متغیر — برای گرید‌ها */
 export function Stagger({
   children,
   className,
@@ -43,10 +46,10 @@ export function Stagger({
       {children.map((child, i) => (
         <motion.div
           key={i}
-          initial={reduce ? false : { opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={reduce ? false : { opacity: 0, y: 26, filter: "blur(6px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ type: "spring", stiffness: 90, damping: 20, delay: i * step }}
+          transition={{ duration: 0.75, ease: EASE_CINEMA, delay: i * step }}
         >
           {child}
         </motion.div>

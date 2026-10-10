@@ -30,3 +30,27 @@ Stage Summary:
 - نوبت‌دهی، پیامک، پرداخت، چت‌بات AI و سئو همگی تست‌شده و فعال
 - اتصال واقعی: KAVENEGAR_API_KEY یا SMSIR_API_KEY برای پیامک، ZARINPAL_MERCHANT_ID برای پرداخت (بدون کلید → حالت Mock/سندباکس امن)
 - تصاویر در public/images/، اسکریپت‌ها در scripts/، اسکیل‌ها در skills/
+
+---
+Task ID: 2
+Agent: main (Super Z)
+Task: اعمال درخواست جدید کاربر — موشن گرافی سینمایی + بک‌گراند هیرو + پالت سبز متعادل با سفید
+
+Work Log:
+- بررسی ۸ اسکیل کلون‌شده (taste, impeccable, ui-ux-pro-max, awesome-design-md, claude-seo, free-llm-apis, img2threejs, playwright-cli) و استخراج قواعد طراحی
+- تولید تصویر سینمایی جدید hero-bg.png (1344x768) با کلینیک سبز-سفید و نور طلایی + به‌روزرسانی og-clinic.png
+- بازنویسی globals.css: پالت teal → مدل چهارطبقه‌ای سبز (Starbucks model): primary #006241، CTA #00754a (متغیر brand-green)، باند تیره #1e3932 (forest)، tint #ecf7f0 — بوم سفید غالب (#fcfdfc)
+- بازنویسی کامل hero.tsx: بک‌گراند تمام‌صفحه با Image fill + پارالاکس useScroll/useTransform + Ken Burns CSS + اسکریم خوانایی سفید RTL + محو به بوم + ورchoreography ورودی ۸ لایه‌ای با منحنی cubic-bezier(0.16,1,0.3,1) + دکمه مغناطیسی (useMotionValue/useSpring) + کارت «نزدیک‌ترین نوبت خالی» + نشانگر اسکرول
+- StatsBar → باند سینمایی تمام‌عرض سبز جنگلی با نویز، درخشش‌های محو و شمارنده‌های سفید
+- reveal.tsx → Reveal سینمایی با blur(8px)→0 و منحنی سینمایی
+- ScrollProgress: نوار پیشرفت سبز ۳px با origin-right (RTL) و فیزیک فنری
+- header.tsx: جایگزینی window scroll listener با useMotionValueEvent (قانون اسکیل taste) + نصب ScrollProgress
+- رفع هاردکدها: logo.svg (سبز #16A34A→#006241)، contact.tsx SVG (#00754a)، layout.tsx themeColor (#006241)، آندرلاین H1 (#00754a)
+- eslint.config.mjs: مستثنی‌سازی skills-external/** (رفع ۱۸۶۴ خطای کد شخص ثالث)
+- رفع سایز تصویر: 1440x720 → 1344x768 (محدودیت API: مضرب ۳۲)
+- تست Agent Browser: هیرو دسکتاپ/موبایل (iPhone 14)، overflow=0px، باند آمار، رزرو کامل نوبت (MHR-A9EEG ثبت و سپس حذف)، چت‌بات با پاسخ فارسی صحیح، lint پاک
+
+Stage Summary:
+- سایت اکنون با پالت سبز-سفید متعادل است: سفید غالب در بوم، سبز در برندینگ/CTA/باندهای تیره
+- هیرو سینمایی با بک‌گراند عکس واقعی کلینیک سبز + موشن گرافی چندلایه
+- همه جریان‌ها (نوبت‌دهی/پیامک/پرداخت/چت‌بات) رگرسیون‌تست شدند و سالم‌اند

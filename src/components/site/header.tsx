@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { CalendarCheck, Menu, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { CLINIC } from "@/lib/clinic";
+import { ScrollProgress } from "@/components/site/hero";
 
 const NAV = [
   { href: "#home", label: "خانه" },
@@ -21,23 +22,21 @@ const NAV = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  /* تشخیص اسکرول با موتور فریمر — بدون scroll listener دستی */
+  useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 24));
 
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 120, damping: 20 }}
-      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ease-cinematic ${
         scrolled ? "glass py-2" : "bg-transparent py-4"
       }`}
     >
+      <ScrollProgress />
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between gap-4">
           {/* لوگو */}
