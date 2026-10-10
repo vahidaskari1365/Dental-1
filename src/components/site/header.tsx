@@ -94,7 +94,7 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] rounded-s-3xl">
               <SheetHeader>
-                <SheetTitle className="flex items-center gap-2.5 text-teal-deep">
+                <SheetTitle className="flex items-center gap-2.5 text-teal-deep ps-10">
                   <Image src="/logo.svg" alt="" width={30} height={30} />
                   منوی کلینیک مهرآوا
                 </SheetTitle>

@@ -15,8 +15,8 @@ export function Footer() {
           {/* برند */}
           <div className="lg:col-span-2 max-w-sm">
             <div className="flex items-center gap-3">
-              <span className="w-12 h-12 rounded-2xl bg-white/10 border border-white/12 flex items-center justify-center">
-                <Image src="/logo.svg" alt="لوگوی کلینیک مهرآوا" width={36} height={36} />
+              <span className="relative w-12 h-12 drop-shadow-[0_6px_16px_rgba(0,0,0,0.35)]">
+                <Image src="/logo.svg" alt="لوگوی کلینیک مهرآوا" width={48} height={48} />
               </span>
               <div>
                 <p className="font-extrabold text-white text-lg">کلینیک مهرآوا</p>
