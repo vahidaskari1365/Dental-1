@@ -146,3 +146,20 @@ Stage Summary:
 - لایه‌های چندگانه کش دور زده شد: URL جدید (logo-v6.svg) + favicon.ico مستقل → در بدترین حالت کش، کاربر یا دندان جدید می‌بیند یا آیکون پیش‌فرض جدید؛ امکان نمایش لوگوی قدیمی منتفی است
 - دستورالعمل کاربر: بستن کامل تب و باز کردن مجدد لینک (یا Ctrl+Shift+R)
 - بدون تغییر منطقی؛ همه جریان‌ها سالم
+
+---
+Task ID: 8
+Agent: main (Super Z)
+Task: پوش سایت به گیت‌هاب (vahidaskari1365/Dental-1) طبق درخواست کاربر
+
+Work Log:
+- بررسی مخزن محلی: git موجود با auto-commitهای پلتفرم؛ آخرین تغییرات لوگو (logo-v6.svg, favicon.ico) از قبل track شده بودند
+- تشخیص: ۸ ورودی skills-external به‌صورت gitlink (submodule بدون .gitmodules) track شده بودند + download/README.md — از index حذف و به .gitignore اضافه شدند (/skills-external/ و /download/)
+- .env بررسی شد: فقط DATABASE_URL محلی بدون هیچ کلید امنیتی → بی‌خطر برای پوش
+- identity محلی تنظیم شد (vahidaskari1365) و commit تمیزسازی: f180786
+- remote origin با توکن تنظیم، branch -M main، push -u origin main موفق
+- تأیید: ls-remote → f1807861 == HEAD محلی؛ مخزن قبلاً خالی بود (بدون نیاز به force)
+
+Stage Summary:
+- سایت کامل (src ۸۴ فایل، public شامل logo-v6.svg و favicon.ico و تصاویر، prisma، db، scripts) روی GitHub است: https://github.com/vahidaskari1365/Dental-1
+- مستثنی: node_modules/.next/logs/skills/download — توکن فقط در .git/config محلی (commit نمی‌شود)
