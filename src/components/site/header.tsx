@@ -42,7 +42,7 @@ export function Header() {
           {/* لوگو */}
           <a href="#home" className="flex items-center gap-3 group" aria-label={CLINIC.name}>
             <span className="relative w-11 h-11 drop-shadow-[0_4px_10px_rgba(0,98,65,0.28)] group-hover:scale-105 group-hover:rotate-3 transition-transform duration-300 ease-cinematic">
-              <Image src="/logo.svg?v=5" alt="لوگوی کلینیک دندانپزشکی مهرآوا" width={44} height={44} priority />
+              <Image src="/logo-v6.svg" alt="لوگوی کلینیک دندانپزشکی مهرآوا" width={44} height={44} priority />
             </span>
             <span className="leading-tight">
               <span className="block font-extrabold text-[15.5px] text-teal-deep">مهرآوا</span>
@@ -95,7 +95,7 @@ export function Header() {
             <SheetContent side="right" className="w-[300px] rounded-s-3xl">
               <SheetHeader>
                 <SheetTitle className="flex items-center gap-2.5 text-teal-deep ps-10">
-                  <Image src="/logo.svg?v=5" alt="" width={30} height={30} />
+                  <Image src="/logo-v6.svg" alt="" width={30} height={30} />
                   منوی کلینیک مهرآوا
                 </SheetTitle>
               </SheetHeader>

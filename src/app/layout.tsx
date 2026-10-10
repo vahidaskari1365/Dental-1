@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     description: "رزرو آنلاین نوبت دندانپزشکی در تهران با مشاوره هوشمند ۲۴ ساعته",
     images: ["/images/og-clinic.png"],
   },
-  icons: { icon: "/logo.svg?v=5", apple: "/logo.svg?v=5" },
+  icons: { icon: "/logo-v6.svg", apple: "/logo-v6.svg" },
 };
 
 export const viewport: Viewport = {
@@ -91,7 +91,7 @@ const jsonLd = {
       currenciesAccepted: "IRR",
       paymentAccepted: "Cash, Credit Card, Online Payment",
       image: `${SITE_URL}/images/og-clinic.png`,
-      logo: `${SITE_URL}/logo.svg`,
+      logo: `${SITE_URL}/logo-v6.svg`,
       address: {
         "@type": "PostalAddress",
         streetAddress: "خیابان ولیعصر، بالاتر از میدان ونک، برج پزشکان مهرآوا، طبقه ۵",
