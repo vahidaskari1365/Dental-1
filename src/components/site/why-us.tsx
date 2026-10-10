@@ -38,26 +38,38 @@ export function WhyUs() {
             </a>
           </div>
 
-          {/* گرید مزیت‌ها */}
+          {/* گرید مزیت‌ها — برخی در کادر سبز جنگلی */}
           <div className="grid sm:grid-cols-2 gap-5">
-            {WHY_US.map((w, i) => (
+            {WHY_US.map((w, i) => {
+              const solid = i === 1 || i === 2;
+              return (
               <motion.article
                 key={w.title}
                 initial={{ opacity: 0, y: 26 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ type: "spring", stiffness: 90, damping: 20, delay: i * 0.09 }}
-                className={`rounded-3xl p-7 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lift ${
-                  i % 2 === 0 ? "bg-white shadow-softer" : "bg-white/70 glass"
+                className={`relative overflow-hidden rounded-3xl p-7 transition-all duration-500 hover:-translate-y-1.5 ${
+                  solid
+                    ? "bg-forest text-white shadow-soft hover:shadow-lift noise"
+                    : i === 0
+                      ? "bg-white shadow-softer hover:shadow-lift"
+                      : "bg-white/70 glass hover:shadow-lift"
                 }`}
               >
-                <span className="w-13 h-13 rounded-2xl bg-secondary flex items-center justify-center mb-5">
-                  <DynamicIcon name={w.icon} className="w-6 h-6 text-primary" strokeWidth={1.8} />
+                {solid && (
+                  <div aria-hidden className="absolute -top-14 -start-14 w-44 h-44 rounded-full bg-brand-green/30 blur-2xl" />
+                )}
+                <span className={`relative w-13 h-13 rounded-2xl flex items-center justify-center mb-5 ${
+                  solid ? "bg-white/12" : "bg-secondary"
+                }`}>
+                  <DynamicIcon name={w.icon} className={`w-6 h-6 ${solid ? "text-white" : "text-primary"}`} strokeWidth={1.8} />
                 </span>
-                <h3 className="text-[16.5px] font-extrabold text-teal-deep">{w.title}</h3>
-                <p className="mt-2.5 text-[13.5px] leading-7 text-muted-foreground">{w.desc}</p>
+                <h3 className={`relative text-[16.5px] font-extrabold ${solid ? "text-white" : "text-teal-deep"}`}>{w.title}</h3>
+                <p className={`relative mt-2.5 text-[13.5px] leading-7 ${solid ? "text-emerald-100/85" : "text-muted-foreground"}`}>{w.desc}</p>
               </motion.article>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

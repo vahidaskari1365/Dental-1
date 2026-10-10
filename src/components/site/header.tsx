@@ -40,12 +40,12 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between gap-4">
           {/* لوگو */}
-          <a href="#home" className="flex items-center gap-2.5 group" aria-label={CLINIC.name}>
-            <span className="relative w-10 h-10 rounded-xl bg-white shadow-softer flex items-center justify-center group-hover:scale-105 transition-transform">
-              <Image src="/logo.svg" alt="لوگو" width={26} height={26} priority />
+          <a href="#home" className="flex items-center gap-3 group" aria-label={CLINIC.name}>
+            <span className="relative w-11 h-11 drop-shadow-[0_6px_14px_rgba(0,98,65,0.38)] group-hover:scale-105 group-hover:-rotate-3 transition-transform duration-300 ease-cinematic">
+              <Image src="/logo.svg" alt="لوگوی کلینیک دندانپزشکی مهرآوا" width={44} height={44} priority />
             </span>
             <span className="leading-tight">
-              <span className="block font-extrabold text-[15px] text-teal-deep">مهرآوا</span>
+              <span className="block font-extrabold text-[15.5px] text-teal-deep">مهرآوا</span>
               <span className="block text-[11px] text-muted-foreground">کلینیک دندانپزشکی</span>
             </span>
           </a>
@@ -94,8 +94,8 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] rounded-s-3xl">
               <SheetHeader>
-                <SheetTitle className="flex items-center gap-2 text-teal-deep">
-                  <Image src="/logo.svg" alt="" width={24} height={24} />
+                <SheetTitle className="flex items-center gap-2.5 text-teal-deep">
+                  <Image src="/logo.svg" alt="" width={30} height={30} />
                   منوی کلینیک مهرآوا
                 </SheetTitle>
               </SheetHeader>

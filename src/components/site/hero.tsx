@@ -203,20 +203,26 @@ export function Hero() {
               </Button>
             </motion.div>
 
-            {/* نشان‌های اعتماد */}
+            {/* نشان‌های اعتماد — کادرهای سبز */}
             <motion.ul
               initial={reduce ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.72 }}
-              className="mt-9 flex flex-wrap gap-x-6 gap-y-3"
+              className="mt-9 flex flex-wrap gap-3"
             >
-              {TRUST.map((t) => (
-                <li key={t.label} className="flex items-center gap-2 text-[13.5px] font-semibold text-foreground/70">
-                  <span className="w-7 h-7 rounded-lg bg-secondary flex items-center justify-center">
-                    <t.icon className="w-4 h-4 text-primary" strokeWidth={2} />
+              {TRUST.map((t, i) => (
+                <motion.li
+                  key={t.label}
+                  initial={reduce ? false : { opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: EASE_CINEMA, delay: 0.78 + i * 0.12 }}
+                  className="flex items-center gap-2.5 rounded-2xl bg-secondary/85 border border-primary/12 px-4 py-2.5 text-[13px] font-bold text-teal-deep shadow-softer"
+                >
+                  <span className="w-7 h-7 rounded-lg bg-primary flex items-center justify-center shrink-0">
+                    <t.icon className="w-4 h-4 text-white" strokeWidth={2} />
                   </span>
                   {t.label}
-                </li>
+                </motion.li>
               ))}
             </motion.ul>
           </div>

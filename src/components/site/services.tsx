@@ -85,20 +85,30 @@ export function Services() {
             </motion.article>
           ))}
 
-          {rest.map((s, i) => (
+          {rest.map((s, i) => {
+            const greenBox = i % 2 === 1;
+            return (
             <motion.article
               key={s.id}
               initial={{ opacity: 0, y: 26 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ type: "spring", stiffness: 90, damping: 20, delay: (i % 3) * 0.08 }}
-              className="group rounded-3xl bg-white shadow-softer hover:shadow-lift transition-all duration-500 p-6 hover:-translate-y-1.5 flex flex-col"
+              className={`group rounded-3xl shadow-softer hover:shadow-lift transition-all duration-500 p-6 hover:-translate-y-1.5 flex flex-col ${
+                greenBox
+                  ? "bg-gradient-to-br from-secondary via-secondary/75 to-mint-soft border border-primary/10"
+                  : "bg-white"
+              }`}
             >
               <div className="flex items-start justify-between">
-                <span className="w-11 h-11 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                <span className={`w-11 h-11 rounded-xl flex items-center justify-center transition-colors duration-300 ${
+                  greenBox ? "bg-white shadow-softer" : "bg-secondary"
+                } group-hover:bg-primary`}>
                   <DynamicIcon name={s.icon} className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" strokeWidth={1.8} />
                 </span>
-                <span className="flex items-center gap-1.5 text-[11.5px] text-muted-foreground bg-mint-soft rounded-full px-3 py-1">
+                <span className={`flex items-center gap-1.5 text-[11.5px] text-muted-foreground rounded-full px-3 py-1 ${
+                  greenBox ? "bg-white/80 border border-primary/8" : "bg-mint-soft"
+                }`}>
                   <Clock3 className="w-3.5 h-3.5" />
                   {s.duration}
                 </span>
@@ -116,7 +126,8 @@ export function Services() {
                 </a>
               </div>
             </motion.article>
-          ))}
+            );
+          })}
         </div>
 
         <Reveal className="mt-10 text-center" delay={0.1}>
